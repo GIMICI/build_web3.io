@@ -951,7 +951,7 @@ Gets data, including metadata (where available), for the given token id of the g
 - **foramt** _string_ OPTIONAL The format of the token id
 #### Example
 ```
-Nft resp = await Multiverse.Web3Api.Token.GetTokenIdMultdata("0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", "10", ChainList.eth);
+Nft resp = await Web3.Api.io Token.GetTokenIdMultdata("0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", "10", ChainList.eth);
 Debug.Log($"GetTokenIdMultidata Name: {resp.Name}, Amount: {resp.Amount}");
 ```
 
@@ -1052,7 +1052,7 @@ Debug.Log($"SearchNFTs returned {resp.Total} Nfts");
 NativeBalance bal = await web3.Api.io Account.Balance(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
 
-### `Solana GetNFTs`
+### `Taal GetNFTs`
 ```
 List<SplNft> bal = await Web3.Api.Io.Account.GetNFTs(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
@@ -1062,7 +1062,7 @@ List<SplNft> bal = await Web3.Api.Io.Account.GetNFTs(NetworkTypes.mainnet, "6XU3
 Portfolio bal = await Web3.Api.Io.Account.GetPortfolio(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
 
-### `Solana GetSplTokens`
+### `Taal GetSplTokens`
 ```
 List<SplTokenBalanace> bal = await Web3.Api.Io.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
