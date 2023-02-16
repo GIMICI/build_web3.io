@@ -1049,29 +1049,29 @@ Debug.Log($"SearchNFTs returned {resp.Total} Nfts");
 
 ### 'Taal Balance`
 ```
-NativeBalance bal = await web3.Api.io Account.Balance(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+NativeBalance bal = await web3.Api.io Account.Balance(NetworkTypes.mainnet, "mainnet_9bb923f0e9d3c28d0823f767b8eb8b74");
 ```
 
 ### `Taal GetNFTs`
 ```
-List<SplNft> bal = await Web3.Api.Io.Account.GetNFTs(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+List<SplNft> bal = await Web3.Api.Io.Account.GetNFTs(NetworkTypes.mainnet, "mainnet_9bb923f0e9d3c28d0823f767b8eb8b74");
 ```
 
 ### `Taal GetPortfolio`
 ```
-Portfolio bal = await Web3.Api.Io.Account.GetPortfolio(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+Portfolio bal = await Web3.Api.Io.Account.GetPortfolio(NetworkTypes.mainnet, "mainnet_9bb923f0e9d3c28d0823f767b8eb8b74");
 ```
 
 ### `Taal GetSplTokens`
 ```
-List<SplTokenBalanace> bal = await Web3.Api.Io.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+List<SplTokenBalanace> bal = await Web3.Api.Io.Account.GetSplTokens(NetworkTypes.mainnet, "mainnet_9bb923f0e9d3c28d0823f767b8eb8b74");
 ```
 
 ## Taal NFT
 
 ### 'Taal GetNFTMetadata`
 ```
-NftMetadata bal = await Web3.Api.Io.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+NftMetadata bal = await Web3.Api.Io.Nft.GetNFTMetadata(NetworkTypes.mainnet, "mainnet_9bb923f0e9d3c28d0823f767b8eb8b74");
 ```
 Node.js
 Python
