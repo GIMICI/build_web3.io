@@ -47,10 +47,10 @@ This kit has been tested with the following Unity3D Releases:
 
 # 🧭 Table of contents
 
-- [-Web3.Api.io for Unity Boilerplate`](#Multiverse-web3Api-web3Api-for-unity-boilerplate)
+- [-Web3.Api.io for Unity Boilerplate`](#Web3.Api.io-web3.Api.io-for-unity-boilerplate)
 - [🚀 Quick Start](#-quick-start)
 - [🧭 Table of contents](#-table-of-contents)
-- [🧰 Multiverse-Web3Api Unity SDK](#-web.3Api.io-unity-sdk)
+- [🧰 Web3.Api.io Unity SDK](#-web.3Api.io-unity-sdk)
     - [`Client`](#client)
     - [`Authentication`](#authentication)  
     - [`Queries`](#queries)  
@@ -115,8 +115,8 @@ This kit has been tested with the following Unity3D Releases:
 - [Helpful Tools](#helpful-tools)
   
 # 🏗 Web3.Api.io Unity SDK 
-  The web3.api.io provides easy to use methods that make integrating your application with web3.Api.io a snap. You will find that the.NET SDK works much the same as in JavaScript. For use in Unity3D, we have added additional quick start objects for integrating the Multiverse-web3Api Web3 Unity SDK in a Unity3D application. 
-  For the examples that follow we provide examples of how to use the Multiverse-Web3Api Unity SDK using the provided moralis-web3 3D quick start tools.
+  The web3.api.io provides easy to use methods that make integrating your application with web3.Api.io a snap. You will find that the.NET SDK works much the same as in JavaScript. For use in Unity3D, we have added additional quick start objects for integrating the Web3.Api.io Web3 Unity SDK in a Unity3D application. 
+  For the examples that follow we provide examples of how to use the Web3.Api.io Unity SDK using the provide web3.io 3D quick start tools.
   
 ## `Client`
   The Web3.Api.io Unity SDK Client provides a way to easily interact with Web3.Api.io database and the Web3.API. For Unity3D we have provided a singleton wrapper named *web3.Api.io* that makes it easy to initialize the Web3.Api.io Client and then access it from anywhere in your Unity3D application. 
@@ -137,10 +137,10 @@ Client()** parameter is optional and should be included only when you will be us
 ### Unity3D Client Initialization
 **Initialize Client**
 ```
-Multiverse-web3.Api.io Initialize(MetadataApplicationId, Web3ApiServerURI, hostManifestData);
+Web3.Api.io Initialize(MetadataApplicationId, Web3ApiServerURI, hostManifestData);
 ```
 _note: For the **hostManifestData** parameter see [`HostManifestData`](#hostmanifestdata). This is required for Unity3D applications._
-_note: See [`User Object`](#userobject) for information about initializing the Multiverse-web3Api Client for a custom User Object._
+_note: See [`User Object`](#userobject) for information about initializing the Web3.Api.io Client for a custom User Object._
 
 ## `Authentication`
 Authentication is handled in a similar manner in both the SDK and the Unity3d. There is no direct manner to interact securely with a wallet in a .NET application so the Moralis Web3 Unity SDK interacts with wallets in a loosely coupled manner. For the Unity3D boilerplate application, and the other examples we provide, we use Wallet Connect to facilitate interaction with wallets. 
@@ -193,9 +193,9 @@ string address = Web3GL.Account().ToLower();
 string appId = Web3.Api.io DappId;
 long serverTime = 0;
 
-// Retrieve server time from Multiverse-web3Api Server for message signature
+// Retrieve server time from Web3.Api.io Server for message signature
 Dictionary<string, object> serverTimeResponse =
-    await Multiverse-web3Api.Cloud.RunAsync<Dictionary<string, object>>("getServerTime", new Dictionary<string, object>());
+    await Web3.Api.io Cloud.RunAsync<Dictionary<string, object>>("getServerTime", new Dictionary<string, object>());
 
 if (serverTimeResponse == null || !serverTimeResponse.ContainsKey("dateTime") ||
     !long.TryParse(serverTimeResponse["dateTime"].ToString(), out serverTime))
@@ -219,7 +219,8 @@ Dictionary<string, object> authData = new Dictionary<string, object>
 int chainId = Web3GL.ChainId();
 
 // Attempt to login user.
-Multiverse-web3ApiUser user = await Multiverse-web3Api.LogInAsync(authData, chainId);
+Multiverse-web3ApiUser user = await Web3.
+Api.LogInAsync(authData, chainId);
 ```
 
 ## `Queries`
@@ -270,7 +271,7 @@ Callbacks are used to handle the events emitted by a subscription. You can set t
 separate these from the main code. To facilitate this we have included the _**Web3.Api.ioLiveQueryCallbacks**_ object. This optional object can be passed to the subscription.
 #### Example Web3.Api.ioLiveQueryCallbacks Use
 ```
-MultiverseLiveQueryCallbacks<Hero> callbacks = new Web3.Api.ioLiveQueryCallbacks<Hero>();
+Web3.Api.ioLiveQueryCallbacks<Hero> callbacks = new Web3.Api.ioLiveQueryCallbacks<Hero>();
 callbacks.OnConnectedEvent += (() => { Debug.Log("Connection Established."); });
 callbacks.OnSubscribedEvent += ((requestId) => { Debug.Log($"Subscription {requestId} created."); });
 callbacks.OnUnsubscribedEvent += ((requestId) => { Debug.Log($"Unsubscribed from {requestId}."); });
@@ -333,13 +334,13 @@ The user object contains information about the currently logged in user. Upon su
 
 If you need to create an instance of web3.Api.ioUser for any reason (**example**: to SignUp with _username_ and _password_) you should do so in this manner:
 ```
-Multiverse-web3Api.ioUser user = Web3.Api.ioCreate<Web3.ApiUser>();
+Web3.Api.ioUser user = Web3.Api.ioCreate<Web3.ApiUser>();
 ```
 Using this method instead of the default constructor of Web3.Api.ioUser ensures that the Web3.Api.io User object created is associated with the web3.Api.io instance. This means that several methods of the object will not work problerly (such as _SaveAsync_, _SignUpAsync_, etc.).
 
 If you create a custom user object it must inherit from Web3.Api.ioUser.
 
-Since C# is a typed language the compiler must know what types are used at compile time. Due to this, since the Web3.Api.ioUser is integral to internal functions in the Eb.Api.io-Web3Api Unity SDK, when you create a custom User Object you must initialize the web3.Api.io client using your custom User Object. After this step you can use web3.Api.io Client as usual.
+Since C# is a typed language the compiler must know what types are used at compile time. Due to this, since the Web3.Api.ioUser is integral to internal functions in the Eb.Api.io-Web3.Api.io Unity SDK, when you create a custom User Object you must initialize the web3.Api.io client using your custom User Object. After this step you can use web3.Api.io Client as usual.
 
 #### Initialize Web3.Api.io Client with Custom User Object
 ```
@@ -542,7 +543,7 @@ Gets NFTs owned by the given address
 - **order** _string_ OPTIONAL The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: fieldName1.order,fieldName2.order. Example 1: "name", "name.ASC", "name.DESC", Example 2: "Name and Symbol", "name.ASC,symbol.DESC"
 #### Example
 ```
-NftOwnerCollection resp = await Multiverse.Web3Api.Account.GetNFTsForContract(address.ToLower(), "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", ChainList.eth);
+NftOwnerCollection resp = await Web3.Api.io.Account.GetNFTsForContract(address.ToLower(), "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", ChainList.eth);
 Debug.Log($"GetNFTsForContract Count: {resp.Total}");
 ```
 
