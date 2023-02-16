@@ -119,24 +119,25 @@ This kit has been tested with the following Unity3D Releases:
   For the examples that follow we provide examples of how to use the Multiverse-Web3Api Unity SDK using the provided moralis-web3 3D quick start tools.
   
 ## `Client`
-  The Multiverse-Web3Api Unity SDK Client provides a way to easily interact with Multiverse-web3Api database and the Web3API. For Unity3D we have provided a singleton wrapper named *web3Api* that makes it easy to initialize the Multiverse-web3ApiClient and then access it from anywhere in your Unity3D application. 
+  The Web3.Api.io Unity SDK Client provides a way to easily interact with Web3.Api.io database and the Web3.API. For Unity3D we have provided a singleton wrapper named *web3.Api.io* that makes it easy to initialize the Web3.Api.io Client and then access it from anywhere in your Unity3D application. 
   
 ### SDK Client Initialization
 We have provided the AuthenticationKit prefab to make authenticating to web3Api with your crypto wallet a snap. 
 
-Just drag the prefab from _Packages\io.Multiverse-web3Api-unity-sdk\Runtime\Kits\AuthenticationKit\Prefabs_ into your authentication screen. That is all you need to do to get started. The AuthenticationKit.prefab is not needed anywhere else in your game.
+Just drag the prefab from _Packages\io.Web3.Api-unity-sdk\Runtime\Kits\AuthenticationKit\Prefabs_ into your authentication screen. That is all you need to do to get started. The AuthenticationKit.prefab is not needed anywhere else in your game.
 
 **Initialize Client**
 You do not have to use the AuthenticationKit. You can create a completely custom authentication process if you wish and initialize Web3.Api.io at the place and time of your choosing.
 ```
-Multiverse-web3ApiClient Multiverse-web3Api = new Multiverse-web3.Api.ioClient(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3ApiClient());
+Web3.Api.ioClient web3.Api.io = new Web3.Api.io Client(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3.Api.ioClient());
 ```
-_note: The **new Web3ApiClient()** parameter is optional and should be included only when you will be using functionality from the Metadata Web3API REST service._
+_note: The **new Web3.Api.io
+Client()** parameter is optional and should be included only when you will be using functionality from the Metadata Web3API REST service._
 
 ### Unity3D Client Initialization
 **Initialize Client**
 ```
-Multiverse-web3Api.Initialize(MetadataApplicationId, Multiverse-web3ApiServerURI, hostManifestData);
+Multiverse-web3.Api.io Initialize(MetadataApplicationId, Web3ApiServerURI, hostManifestData);
 ```
 _note: For the **hostManifestData** parameter see [`HostManifestData`](#hostmanifestdata). This is required for Unity3D applications._
 _note: See [`User Object`](#userobject) for information about initializing the Multiverse-web3Api Client for a custom User Object._
@@ -159,7 +160,7 @@ public async void WalletConnect_OnConnectedEventSession(WCSessionData wcSessionD
     string appId = we3.Api.io.DappId;
     long serverTime = 0;
 
-    // Retrieve server time from Multiverse-web3Api Server for message signature
+    // Retrieve server time from Web3.Api.io Server for message signature
     Dictionary<string, object> serverTimeResponse = await Metadata.Cloud
         .RunAsync<Dictionary<string, object>>("getServerTime", new Dictionary<string, object>());
 
@@ -182,7 +183,7 @@ public async void WalletConnect_OnConnectedEventSession(WCSessionData wcSessionD
     };
 
     // Attempt to login user.
-    Multiverse-web3ApiUser user = await web3.Api.io LogInAsync(authData, wcSessionData.chainId.Value);
+    Web3.Api.io User user = await web3.Api.io LogInAsync(authData, wcSessionData.chainId.Value);
 }
 ```
 
@@ -239,14 +240,14 @@ Furthermore we will sort (order) the result set by the hero's strength, descendi
 ```
 web3.Api.ioQuery<PlayerData> q = await web3Api.Query<PlayerData>();web3.Api.ioQuery<PlayerData> q1 = q.WhereGreaterThanOrEqualTo("Level", 2);
 web3.Api.ioQuery<PlayerData> q2 = q.WhereEqualTo("Name", "Zuko");
-web3.Api.ioQuery<PlayerData> q3 = Multiverse-web3Api.BuildOrQuery<PlayerData>(new web3.Api.ioeQuery<PlayerData>[] { q1, q2 }).OrderByDescending("Strength");
+web3.Api.ioQuery<PlayerData> q3 = Web3Api.BuildOrQuery<PlayerData>(new web3.Api.ioeQuery<PlayerData>[] { q1, q2 }).OrderByDescending("Strength");
 IEnumerable<PlayerData> result = await q3.FindAsync();
 ```
 
 ## `Live Queries`
 Live Queries are queries that include a subscription that provide updates whenever the data targeted by the query are updated.
 A Live Query subscription emits events that indicate the state of the client and changes to the data. For more information please see
-the [docs](https://docs.multiverse.io/multiverse-server/database/live-queries).
+the [docs](https://docs.multiverse.io/web3.Api.ioserver/database/live-queries).
 
 The following examples use the [query example from above](#queries)
 ### Live Query Example
@@ -269,7 +270,7 @@ Callbacks are used to handle the events emitted by a subscription. You can set t
 separate these from the main code. To facilitate this we have included the _**Web3.Api.ioLiveQueryCallbacks**_ object. This optional object can be passed to the subscription.
 #### Example Web3.Api.ioLiveQueryCallbacks Use
 ```
-MultiverseLiveQueryCallbacks<Hero> callbacks = new Multiverse-web3ApiLiveQueryCallbacks<Hero>();
+MultiverseLiveQueryCallbacks<Hero> callbacks = new Web3.Api.ioLiveQueryCallbacks<Hero>();
 callbacks.OnConnectedEvent += (() => { Debug.Log("Connection Established."); });
 callbacks.OnSubscribedEvent += ((requestId) => { Debug.Log($"Subscription {requestId} created."); });
 callbacks.OnUnsubscribedEvent += ((requestId) => { Debug.Log($"Unsubscribed from {requestId}."); });
@@ -296,7 +297,7 @@ callbacks.OnGeneralMessageEvent += ((text) =>
 ```
 
 ## `Custom Object`
-Creating your own objects to support NPCs, characters, and game objects is as simple as creating a Plain Old C# Object (POCO). The only stipulation is that your custom object must be a child of Web3.Api.Io Object and when you create an instance of the object it should be made via _**Web3.Api.ioCreate**_ method. This associates some extensions to your object that enable you to perform Web3.Api.io functions such as _Save_ directly on the object.
+Creating your own objects to support NPCs, characters, and game objects is as simple as creating a Plain Old C# Object (POCO). The only stipulation is that your custom object must be a child of Web3.Api.Io Object and when you create an instance of the object it should be made via _**Web3.Api.io Create**_ method. This associates some extensions to your object that enable you to perform Web3.Api.io functions such as _Save_ directly on the object.
 **Note:** Inclusion of _base([OBJECT NAME]) is important for proper database handling.
 #### Sample Object
 ``` 
@@ -332,19 +333,19 @@ The user object contains information about the currently logged in user. Upon su
 
 If you need to create an instance of web3.Api.ioUser for any reason (**example**: to SignUp with _username_ and _password_) you should do so in this manner:
 ```
-Multiverse-web3ApiUser user = Web3.Api.ioCreate<Multiverse-web3ApiUser>();
+Multiverse-web3Api.ioUser user = Web3.Api.ioCreate<Web3.ApiUser>();
 ```
-Using this method instead of the default constructor of Multiverse-web3ApiUser ensures that the Multiverse-web3.Api.ioUser object created is associated with the web3.Api.io instance. This means that several methods of the object will not work problerly (such as _SaveAsync_, _SignUpAsync_, etc.).
+Using this method instead of the default constructor of Web3.Api.ioUser ensures that the Web3.Api.io User object created is associated with the web3.Api.io instance. This means that several methods of the object will not work problerly (such as _SaveAsync_, _SignUpAsync_, etc.).
 
-If you create a custom user object it must inherit from Multiverse-web3ApiUser.
+If you create a custom user object it must inherit from Web3.Api.ioUser.
 
-Since C# is a typed language the compiler must know what types are used at compile time. Due to this, since the Web3.Api.ioUser is integral to internal functions in the Eb.Api.io-Web3Api Unity SDK, when you create a custom User Object you must initialize the Muktiverse-web3Api client using your custom User Object. After this step you can use the Multiverse-web3Api Client as usual.
+Since C# is a typed language the compiler must know what types are used at compile time. Due to this, since the Web3.Api.ioUser is integral to internal functions in the Eb.Api.io-Web3Api Unity SDK, when you create a custom User Object you must initialize the web3.Api.io client using your custom User Object. After this step you can use web3.Api.io Client as usual.
 
 #### Initialize Web3.Api.io Client with Custom User Object
 ```
 Web3.Api.ioClient<YourUserObject> web3.Api.io = new Web3.ioApiClient<YourUserObject>(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3.Api.ioClient());
 ```
-_note: for Unity3D you will need to make the above change in the **web3.Api.ioInitialize** object. You will also need to replace the web3.Api.ioUser object elsewhere in the Boilerplate code._
+_note: for Unity3D you will need to make the above change in the **web3.Api.io Initialize** object. You will also need to replace the web3.Api.ioUser object elsewhere in the Boilerplate code._
 _**WARNING** do not make any replacements to any files under the web3.Api.ioDtoNet folder_
 
 ## `Authentication Data`
@@ -370,7 +371,8 @@ For Web3 support, an [Nethereum](https://ethereum.com/) Web3 object is exposed i
 ```
     private void InitializeWeb3()
     {
-        Web3.Api.ioSetupWeb3();
+        Web3.Api.io
+SetupWeb3();
     } 
 
     /// <summary>
@@ -592,7 +594,7 @@ Debug.Log($"GetTokenTransfers Count: {balance.Total}");
 Gets native transactions in descending order based on block number
 - **address** _string_ REQUIRED Target address
 - **chain** _ChainList_ REQUIRED The chain to query
-- **subdomain** _string_ OPTIONAL The subdomain of the moralis server to use (Only use when selecting local devchain as chain)
+- **subdomain** _string_ OPTIONAL The subdomain of the Web.Api.io server to use (Only use when selecting local devchain as chain)
 - **fromBlock** _string_ OPTIONAL The minimum block number from where to get the logs.
 - **toBlock** _string_ OPTIONAL The maximum block number from where to get the logs.
 - **fromDate** _string_ OPTIONAL The date from where to get the logs (any format that is accepted by momentjs).
