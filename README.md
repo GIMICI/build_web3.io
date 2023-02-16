@@ -5,7 +5,7 @@
 
 > Web3 Game Kit is the fastest way to connect and build games for Web3. It provides a single workflow for building high performance dapps. Fully compatible with your favourite platform.
 
-This kit is built on [fusion Web3.Api.IoUnity SDK](https://github.com/web.api.io/web.3Api.io-unity-sdk) and [Web3.api.io](https://web3.api.io?utm_source=github&utm_medium=readme&utm_campaign=ethereum-boilerplate). 
+This kit is built on [fusion Web3.Api.IoUnity SDK](https://github.com/web3.api.io/web.Api.io-unity-sdk) and [Web3.api.io](https://web3.api.io?utm_source=github&utm_medium=readme&utm_campaign=ethereum-boilerplate). 
 
 Please check the [official documentation of web3.api.io](https://docs.web3.api.io/#user) for all the functionalities of web3.Api.io
 
@@ -15,13 +15,13 @@ Please check the [official documentation of web3.api.io](https://docs.web3.api.i
 If this kit helps you build dapps faster - please star this project, every star makes us very happy!
 
 # :city_sunrise: `Community`
-The best thing about Multiverse-web3Api is the super active community ready to help at any time! We help each other.
+The best thing about Web3.Api.io is the super active community ready to help at any time! We help each other.
 ## 🤝 `Need help?`
 If you need help with setting up the kit or have other questions - don't hesitate to write in our community forum and we will check asap. [Forum link](https://forum.web.api.io/t/ethereum-unity3d-boilerplate-questions/4553). 
 ## Discord
-Become a  Multiverse web.Unity Mage - join the [Multiverse-web3Api DAO Discord](https://Multiverse-webApi/image)
+Become a Web3.Api.io Unity Mage - join the [Web3.Api.io DAO Discord](https://Web.Api.io/image)
 ## Feedback
-To give feedback, ask a question or make a feature request, you can either use the [Forum](https://forum.Multiverse.io/) or the [game-dev](https://discordapp.com/channels/819584798443569182/918645175562145822) Discord thread.
+To give feedback, ask a question or make a feature request, you can either use the [Forum](https://forum.Web3.Api.io/) or the [game-dev](https://discordapp.com/channels/819584798443569182/918645175562145822) Discord thread.
 
 Bugs are logged using the github issue system. To report a bug, simply open a new issue.
 
@@ -267,7 +267,7 @@ By using the The _**Web3.Api.ioLiveQueryController**_ object you do not need to 
 ### Live Query Callbacks Explained.
 Callbacks are used to handle the events emitted by a subscription. You can set the callbacks directly against a subscription. However it is usually cleaner to 
 separate these from the main code. To facilitate this we have included the _**Web3.Api.ioLiveQueryCallbacks**_ object. This optional object can be passed to the subscription.
-#### Example Muktiverse-web3ApiLiveQueryCallbacks Use
+#### Example Web3.Api.ioLiveQueryCallbacks Use
 ```
 MultiverseLiveQueryCallbacks<Hero> callbacks = new Multiverse-web3ApiLiveQueryCallbacks<Hero>();
 callbacks.OnConnectedEvent += (() => { Debug.Log("Connection Established."); });
@@ -300,7 +300,7 @@ Creating your own objects to support NPCs, characters, and game objects is as si
 **Note:** Inclusion of _base([OBJECT NAME]) is important for proper database handling.
 #### Sample Object
 ``` 
-public class Hero : Multiverse-web3ApiObject
+public class Hero : Web3.Api.Io Object
 {
     public int Strength { get; set; }
     public int Level { get; set; }
@@ -342,13 +342,13 @@ Since C# is a typed language the compiler must know what types are used at compi
 
 #### Initialize Web3.Api.io Client with Custom User Object
 ```
-Web3Api.ioClient<YourUserObject> web3.Api.io = new Web3.ioApiClient<YourUserObject>(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Multiverse Web3ApiClient());
+Web3.Api.ioClient<YourUserObject> web3.Api.io = new Web3.ioApiClient<YourUserObject>(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3.Api.ioClient());
 ```
-_note: for Unity3D you will need to make the above change in the **Multiverse-web3Api.Initialize** object. You will also need to replace the web3ApiUser object elsewhere in the Boilerplate code._
-_**WARNING** do not make any replacements to any files under the Multiverse-webApiDtoNet folder_
+_note: for Unity3D you will need to make the above change in the **web3.Api.ioInitialize** object. You will also need to replace the web3.Api.ioUser object elsewhere in the Boilerplate code._
+_**WARNING** do not make any replacements to any files under the web3.Api.ioDtoNet folder_
 
 ## `Authentication Data`
-Authentication data is a _**Dictionary<string, string>**_ object that contains the information required by Moralis to authenticate a user.
+Authentication data is a _**Dictionary<string, string>**_ object that contains the information required by Web3.Api.io to authenticate a user.
 As a minimum the authentication data dictionary must contain the following entries:
 1. **id** The wallet address of the wallet used to sign the message.
 2. **signature** The signature data returned by the Sign request sent to the wallet.
@@ -356,7 +356,7 @@ As a minimum the authentication data dictionary must contain the following entri
 #### Example
 ```
 ## `HostManifestData`
-In Unity3D applications the HostManifestData object is used to pass information to Multiverse that is usually autogenerated from Windows system variables. Since Unity3D supports multiple platforms this information is not always available. 
+In Unity3D applications the HostManifestData object is used to pass information to Web3.Api.io that is usually autogenerated from Windows system variables. Since Unity3D supports multiple platforms this information is not always available. 
 
 ## `ServerConnectionData`
 Description here
@@ -397,12 +397,12 @@ By calling _Web3.Api.ioAddContractChainAddress([CONTRACT KEY], [CHAIN ID], [CONT
 
 To retrieve an Nethereum contract instance call:
 ```
-Contract c = Multiverse-web3Api.EvmContractInstance([CONTRACT KEY], [CHAIN ID]);
+Contract c = Web3.Api.io.EvmContractInstance([CONTRACT KEY], [CHAIN ID]);
 ```
 
 Retrieve an Nethereum contract function instance:
 ```
-Function f = Multiverse-web3Api.EvmContractFunctionInstance([CONTRACT KEY], [CHAIN ID], [FUNCTION NAME]);
+Function f = Web3.Api.io EvmContractFunctionInstance([CONTRACT KEY], [CHAIN ID], [FUNCTION NAME]);
 ```
 
 Call function with no parameters
@@ -450,14 +450,14 @@ When you have a file that is used for both WebGL and non-WebGL builds use the __
 Under the hood, WebGL loads external resources similar to javascript using AJAX. This means that you can run into CORs issues in the client browser when loading external resources. The prescribed method to solve this issue (as settings for CORS are on the server side) is to create a proxy service. 
 
 As part of the WebGL solution example, the *TokenListController.cs* file shows how to use a GMC Cloud function as a proxy for loading external resources. To successfully display the images of tokens in the wallet example you will need to create the following cloud function in your Web3.Api.io server.
-1. Log into Multiverse, select and expand your Server instance.
+1. Log into Web3.Api.io, select and expand your Server instance.
 2. Click on the "Cloud Functions" button.
 3. Copy the following code into your Cloud Functions
 ```
 GMC Cloud.define("loadResource", async (request) => {
   const logger = GMC Cloud.getLogger();
   
-  return await Multiverse.Cloud.httpRequest({
+  return await GMC Cloud.httpRequest({
     url: request.params.url
   }).then(function(httpResponse) {
     let resp = {status: httpResponse.status, headers: httpResponse.headers, data: JSON.stringify(httpResponse.buffer)};
@@ -476,12 +476,12 @@ GMC Cloud.define("loadResource", async (request) => {
 # 🏗 Ethereum Web3Api Methods
 
 ## `Web3Api Notes`
-The complete Multiverse Web3API schema including endpoints, operations and models, can be found by logging in to your Web3'Api.io Server and selecting **Web3.AP.IO***
+The complete Web3.Api.Io schema including endpoints, operations and models, can be found by logging in to your Web3'Api.io Server and selecting **Web3.AP.IO***
 
 For use with either Web3.Api.io Unity SDK or in Unity3d, the following using statements are required:
 
 ## `Chains`
-Use the code snippet below to retrieve a list of EVM chains supported in the Multiverse Web3API. This list can be used for populating dropdown lists etc.
+Use the code snippet below to retrieve a list of EVM chains supported in the Web3.Api.Io This list can be used for populating dropdown lists etc.
 #### Example
 ```
 List<ChainEntry> chains = WEB3.Api.IO SupportedChains;
@@ -498,7 +498,7 @@ Gets native balance for a specific address
 - **toBlock** _string_ OPTIONAL The maximum block number from where to get the logs.
 #### Example
 ```
-NativeBalance balance = await Multiverse.Web3Api.Account.GetNativeBalance(address.ToLower(), ChainList.eth);
+NativeBalance balance = await Web3.Api.ioAccount.GetNativeBalance(address.ToLower(), ChainList.eth);
 Debug.Log($"GetNativeBalance Balance: {balance.Balance}");
 ```
 
@@ -584,7 +584,7 @@ Gets ERC20 token transactions in descending order based on block number
 - **limit** _integer_ OPTIONAL Limit
 #### Example
 ```
-Erc20TransactionCollection balance = await Multiverse.Web3Api.Account.GetTokenTransfers(address.ToLower(), ChainList.eth);
+Erc20TransactionCollection balance = await Web3.Api.ioAccount.GetTokenTransfers(address.ToLower(), ChainList.eth);
 Debug.Log($"GetTokenTransfers Count: {balance.Total}");
 ```
 
@@ -601,12 +601,12 @@ Gets native transactions in descending order based on block number
 - **limit** _integer_ OPTIONAL Limit
 #### Example
 ```
-TransactionCollection balance = await Multiverse.Web3Api.Account.GetTransactions(address.ToLower(), ChainList.eth);
+TransactionCollection balance = await Web3.Api.ioAccount.GetTransactions(address.ToLower(), ChainList.eth);
 Debug.Log($"GetTransactions Count: {balance.Total}");
 ```
 
 ## `Defi`
-Code examples demonstrating how to use the Multiverse Web3.Api.io Defi endpoint and operations.
+Code examples demonstrating how to use the Web3.Api.io Defi endpoint and operations.
 
 ### `GetPairAddress`
 Fetches and returns pair data of the provided token0+token1 combination. The token0 and token1 options are interchangable (ie. there is no different outcome in "token0=WETH and token1=USDT" or "token0=USDT and token1=WETH")
@@ -618,7 +618,7 @@ Fetches and returns pair data of the provided token0+token1 combination. The tok
 - **toDate** _string_ OPTIONAL Get the logs to this date (any format that is accepted by momentjs)
 #### Example
 ```
-ReservesCollection nftTransers = Multiverse.Web3Api.Defi.GetPairAddress(exchange, token0Address, token1Address, ChainList.eth);
+ReservesCollection nftTransers = Web3.Api.io.Defi.GetPairAddress(exchange, token0Address, token1Address, ChainList.eth);
 ```
 
 ### `GetPairReserves`
@@ -652,7 +652,7 @@ Gets events in descending order based on block number
 - **topic** _string_ REQUIRED The topic of the event. This is the hash of the function
 - **abi** _object_ REQUIRED ABI of the event being searched for. See example below for object format.
 - **chain** _ChainList_ REQUIRED The chain to query
-- **subdomain** _string_ OPTIONAL The subdomain of the multiverse-web3Api server to use (Only use when selecting local devchain as chain)
+- **subdomain** _string_ OPTIONAL The subdomain of the web3.Api.io server to use (Only use when selecting local devchain as chain)
 - **providerUrl** _string_ OPTIONAL web3 provider url to user when using local dev chain
 - **fromBlock** _string_ OPTIONAL The minimum block number from where to get the logs.
 - **toBlock** _string_ OPTIONAL The maximum block number from where to get the logs.
@@ -683,7 +683,7 @@ Gets the closest block of the provided date
 #### Example
 ```
 string blockNumberOrHash = "25509457";
-Block block = await Multiverse.Web3Api.Native.GetBlock(blockNumberOrHash, chainId);
+Block block = await Web3.Api.io.Native.GetBlock(blockNumberOrHash, chainId);
 Debug.Log($"GetBlock BlockNumber: {block.Number}, Transaction Count: {block.TransactionCount}");
 ```
 
@@ -722,7 +722,7 @@ Debug.Log($"GetNFTTransfersByBlock Nfts returned: {nftTransfers.Result.Count}");
 Gets the contents of a block transaction by hash
 - **transactionHash** _string_ REQUIRED The transaction hash
 - **chain** _ChainList_ REQUIRED The chain to query
-- **subdomain** _string_ OPTIONAL The subdomain of the multiverse server to use (Only use when selecting local devchain as chain)
+- **subdomain** _string_ OPTIONAL The subdomain of the Web3.Api.Io server to use (Only use when selecting local devchain as chain)
 #### Example
 ```
 string transactionHash = "0xe1ec2dd9964f4dc59b53dce083917abfb5ab5191a37cb1e21566969caa614fcd";
@@ -809,7 +809,7 @@ List<IpfsFile> resp = web3Api.Storage.UploadFolder(reqs);
 ```
 
 ## `Token`
-Code examples demonstrating how to use the Multiverse-Web3API Token endpoint and operations.
+Code examples demonstrating how to use the Web3.Api.Io Token endpoint and operations.
 
 ### `GetAllTokenIds`
 Gets data, including metadata (where available), for all token ids for the given contract address.
@@ -821,7 +821,7 @@ Gets data, including metadata (where available), for all token ids for the given
 - **order** _string_ OPTIONAL If the order should be Ascending or Descending based on the blocknumber on which the NFT was minted. Allowed values: "ASC", "DESC"
 #### Example
 ```
-NftCollection resp = await Web.3Api.io Token.GetAllTokenIds("0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", ChainList.eth, null, 0, 10);
+NftCollection resp = await Web3.Api.io Token.GetAllTokenIds("0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", ChainList.eth, null, 0, 10);
 Debug.Log($"GetAllTokenIds returned {resp.Total} Nfts");
 ```
 
@@ -990,7 +990,7 @@ Returns multidata (name, symbol, decimals, logo) for a given token contract addr
 ```
 List<string> symbols = new List<string>();
 symbols.Add("DAI");
-List<Erc20Multidata> resp = awaitWeb3.Api.io Token.GetTokenMultidataBySymbol(symbols, ChainList.eth);
+List<Erc20Multidata> resp = await Web3.Api.io Token.GetTokenMultidataBySymbol(symbols, ChainList.eth);
 Debug.Log($"GetTokenMultidataBySymbol returned {resp.Count} entries.");
 ```
 
@@ -1003,7 +1003,7 @@ Returns the price nominated in the native token and usd for a given token contra
 - **toBlock** _string_ OPTIONAL The maximum block number from where to get the logs.
 #### Example
 ```
-Erc20Price resp = await Web3Api..io Token.GetTokenPrice("0x6b175474e89094c44da98b954eedeac495271d0f", ChainList.eth);
+Erc20Price resp = await Web3.Api.io Token.GetTokenPrice("0x6b175474e89094c44da98b954eedeac495271d0f", ChainList.eth);
 Debug.Log($"GetTokenPrice Price: {resp.UsdPrice} USD");
 ```
 
@@ -1036,7 +1036,7 @@ Gets NFTs that match a given metadata search.
 - **limit** _integer_ OPTIONAL Limit
 #### Example
 ```
-NftMuktidataCollection resp = await Multiverse.Web3Api.Token.SearchNFTs("Apes", ChainList.eth, null, null, null, null, null, null, 0, 10);
+NftMuktidataCollection resp = await Web3.Api.io.Token.SearchNFTs("Apes", ChainList.eth, null, null, null, null, null, null, 0, 10);
 Debug.Log($"SearchNFTs returned {resp.Total} Nfts");
 ```
 
@@ -1061,21 +1061,21 @@ Portfolio bal = await Web3.Api.Io.Account.GetPortfolio(NetworkTypes.mainnet, "6X
 
 ### `Solana GetSplTokens`
 ```
-List<SplTokenBalanace> bal = await Multiverse.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+List<SplTokenBalanace> bal = await Web3.Api.Io.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
 
-## Solana NFT
+## Taal NFT
 
-### `Solana GetNFTMetadata`
+### 'Taal GetNFTMetadata`
 ```
-NftMetadata bal = await Multiverse.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+NftMetadata bal = await Web3.Api.Io.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
 ```
 Node.js
 Python
 cURL
 Go
 PHP
-import web3.io  from 'multiverse-web3Api';
+import web3.io  from 'web3.Api.io';
 import { EvmChain } from '@web3.io/evm-utils';
 
 try {
@@ -1083,12 +1083,12 @@ try {
 
     const symbols = ['UNI', 'AAVE', 'LINK'];
 
-    await Multiverse-web3Api.start({
+    await Web3.Api.io start({
         apiKey: 'YOUR_API_KEY',
         // ...and any other configuration
     });
 
-    const response = await Multiverse-webApi.EvmApi.token.getTokenMetadataBySymbol({
+    const response = await Web.Api.ioEvmApi.token.getTokenMetadataBySymbol({
         symbols,
         chain,
     });
@@ -1121,26 +1121,26 @@ try {
   <body>
     <h1>multiverse Hello World!</h1>
 
-    <button id="btn-login">Multiverse Metamask Login</button>
+    <button id="btn-login">Web3.Api.ioMetamask Login</button>
     <button id="btn-logout">Logout</button>
 
     <script type="text/javascript" src="./main.js"></script>
   </body>
 </html>
- import Multiverse  from 'Multiverse';
-import { EvmChain } from '@multiverseweb3/evm-utils';
+ import Web3.io  from 'Web3.Api.Io';
+import { EvmChain } from '@web3/evm-utils';
 
 try {
     const chain = EvmChain.ETHEREUM;
 
     const address = '0x1234567890123456789012345678901234567890';
 
-    await Multiverse.start({
+    await Web3.Api.io.start({
         apiKey: 'YOUR_API_KEY',
         // ...and any other configuration
     });
 
-    const response = await Multiverse.EvmApi.token.getTokenTransfers({
+    const response = await Web3.Api.io.EvmApi.token.getTokenTransfers({
         address,
         chain,
     });
@@ -1172,4 +1172,3 @@ RESPONSE EXAMPLE
     "log_index": 2
   }
 }   
-https://github.com/Hoshi-Ciber369/HTTPS-web3.io.wiki.git
