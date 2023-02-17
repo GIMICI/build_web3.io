@@ -104,8 +104,8 @@ This kit has been tested with the following Unity3D Releases:
         - [`GetTokenPrice`](#gettokenprice)
         - [`GetWalletTokenIdTransfers`](#getwallettokenidtransfers)
         - [`SearchNFTs`](#searchnfts)
-- [🏗 Solana Api Methods](#-solana-api-methods)
-    - [Solana Account](#solana-account)
+- [🏗 Taal Api Methods](#-solana-api-methods)
+    - [Taal; Account](#solana-account)
         - [`Taal Balance`](#solana-balance)
         - [`Taal GetNFTs`](#solana-getnfts)
         - [`Taal GetPortfolio`](Taal-getportfolio)
@@ -457,8 +457,8 @@ As part of the WebGL solution example, the *TokenListController.cs* file shows h
 2. Click on the "Cloud Functions" button.
 3. Copy the following code into your Cloud Functions
 ```
-GMC Cloud.define("loadResource", async (request) => {
-  const logger = GMC Cloud.getLogger();
+Taal Cloud.define("loadResource", async (request) => {
+  const logger = Taal Cloud.getLogger();
   
   return await GMC Cloud.httpRequest({
     url: request.params.url
@@ -729,7 +729,7 @@ Gets the contents of a block transaction by hash
 #### Example
 ```
 string transactionHash = "0xe1ec2dd9964f4dc59b53dce083917abfb5ab5191a37cb1e21566969caa614fcd";
-BlockTransaction blockTransaction = await Multiverse.Web3Api.Native.GetTransaction(transactionHash, ChainList.mumbai);
+BlockTransaction blockTransaction = await Web3.Api.ioNative.GetTransaction(transactionHash, ChainList.mumbai);
 Debug.Log($"Block transaction BlackNumber: {blockTransaction.BlockNumber}, from Address: {blockTransaction.FromAddress}");
 ```
 
@@ -862,7 +862,7 @@ Gets the contract level metadata (name, symbol, base token uri) for the given co
 #### Example
 ```
 NftContractMetadata resp = await Web3.Api.io Token.GetNFTMetadata("0x06012c8cf97BEaD5deAe237070F9587f8E7A266d", ChainList.eth);
-Debug.Log($"GetNFTMultidata Name: {resp.Name}, TokenAddress: {resp.TokenAddress}");
+Debug.Log($"GetNFTMetadata Name: {resp.Name}, TokenAddress: {resp.TokenAddress}");
 ```
 
 ### `GetNFTOwners`
@@ -1118,7 +1118,7 @@ try {
 # Integration
   <head>
     <title>Vanilla Boilerplate</title>
-    <script src="https://unpkg.com/multiverse-v1/dist/multiversejs"></script>
+    <script src="https://unpkg.com/Web3.Api.io.v1/dist/Web3.Api.iojs"></script>
   </head>
 
   <body>
