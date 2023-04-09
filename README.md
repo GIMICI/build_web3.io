@@ -21,7 +21,7 @@ If you need help with setting up the kit or have other questions - don't hesitat
 ## Discord
 Become a Web3.Api.io Unity Mage - join the [Web3.Api.io DAO Discord](https://Web.Api.io/image)
 ## Feedback
-To give feedback, ask a question or make a feature request, you can either use the [Forum](https://forum.Web3.Api.io/) or the [game-dev](https://discordapp.com/channels/819584798443569182/918645175562145822) Discord thread.
+To give feedback, ask a question or make a feature request, you can either use the [Forum](https://forum.Web3.Api.io/) or the [game-dev](https://discordapp.com/channels/ff9aa22c7075cb13da8c34263cff56ca01e982f9e1b1158bcad10758f54e0118) Discord thread.
 
 Bugs are logged using the github issue system. To report a bug, simply open a new issue.
 
