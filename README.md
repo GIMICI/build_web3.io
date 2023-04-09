@@ -94,7 +94,8 @@ This kit has been tested with the following Unity3D Releases:
         - [`GetNFTMetadata`](#getnftmetadata)
         - [`GetNFTOwners`](#getnftowners)
         - [`GetNFTTrades`](#getnfttrades)
-        - [`GetNftTransfersFromToBlock`](#getnfttransfersfromtoblock)
+        - [`GetNftTransfersFromToBlock`](#getnfttransf
+ersfromtoblock)
         - [`GetTokenAdressTransfers`](#gettokenaddrestransfers)
         - [`GetTokenAllowance`](#gettokenallowance)
         - [`GetTokenIdMetadata`](#gettokenidmetadata)
@@ -129,7 +130,7 @@ Just drag the prefab from _Packages\io.Web3.Api-unity-sdk\Runtime\Kits\Authentic
 **Initialize Client**
 You do not have to use the AuthenticationKit. You can create a completely custom authentication process if you wish and initialize Web3.Api.io at the place and time of your choosing.
 ```
-Web3.Api.ioClient web3.Api.io = new Web3.Api.io Client(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3.Api.ioClient());
+Web3.Api.ioClient web3.Api.io = new Web3.Api.io Client(new ServerConnectionData() { ApplicationID = "https://github.com/GIMICI", ServerURI = "https://github.com/GIMICI"}, new Web3.Api.ioClient());
 ```
 _note: The **new Web3.Api.io
 Client()** parameter is optional and should be included only when you will be using functionality from the Metadata Web3API REST service._
@@ -219,7 +220,7 @@ Dictionary<string, object> authData = new Dictionary<string, object>
 int chainId = Web3GL.ChainId();
 
 // Attempt to login user.
-Multiverse-web3ApiUser user = await Web3.
+GIMICI-web3ApiUser user = await Web3.
 Api.LogInAsync(authData, chainId);
 ```
 
@@ -248,7 +249,7 @@ IEnumerable<PlayerData> result = await q3.FindAsync();
 ## `Live Queries`
 Live Queries are queries that include a subscription that provide updates whenever the data targeted by the query are updated.
 A Live Query subscription emits events that indicate the state of the client and changes to the data. For more information please see
-the [docs](https://docs.multiverse.io/web3.Api.ioserver/database/live-queries).
+the [docs](https://docs.Gimici.io/web3.Api.ioserver/database/live-queries).
 
 The following examples use the [query example from above](#queries)
 ### Live Query Example
@@ -344,7 +345,7 @@ Since C# is a typed language the compiler must know what types are used at compi
 
 #### Initialize Web3.Api.io Client with Custom User Object
 ```
-Web3.Api.ioClient<YourUserObject> web3.Api.io = new Web3.ioApiClient<YourUserObject>(new ServerConnectionData() { ApplicationID = "YOUR_APPLICATION_ID_HERE", ServerURI = "YOUR_SERER_URL_HERE"}, new Web3.Api.ioClient());
+Web3.Api.ioClient<YourUserObject> web3.Api.io = new Web3.ioApiClient<YourUserObject>(new ServerConnectionData() { ApplicationID = "https://github.com/GIMICI", ServerURI = "https://github.com/GIMICI"}, new Web3.Api.ioClient());
 ```
 _note: for Unity3D you will need to make the above change in the **web3.Api.io Initialize** object. You will also need to replace the web3.Api.ioUser object elsewhere in the Boilerplate code._
 _**WARNING** do not make any replacements to any files under the web3.Api.ioDtoNet folder_
@@ -643,7 +644,7 @@ Code examples demonstrating how to use the Web3.Api.io Native endpoint and opera
 Gets the contents of a block by block hash
 - **blockNumberOrHash** _string_ REQUIRED The block hash or block number
 - **chain** _ChainList_ REQUIRED The chain to query
-- **subdomain** _string_ OPTIONAL The subdomain of the multiverse-web3Api server to use (Only use when selecting local devchain as chain)
+- **subdomain** _string_ OPTIONAL The subdomain of the web3Api server to use (Only use when selecting local devchain as chain)
 #### Example
 ```
 Block block = Web3.Api.io.Native.GetBlock(blockNumberOrHash, ChainList.eth);
@@ -673,7 +674,7 @@ Gets events in descending order based on block number
     // Event ABI
     object abi = new { anonymous = false, inputs = inputParams, name = "RoleGranted", type = "event" };
 
-    List<LogEvent> logEvents = await Web3.Api.io Native.GetContractEvents("0x698d7D745B7F5d8EF4fdB59CeB660050b3599AC3", "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d", abi, ChainList.mumbai);
+    List<LogEvent> logEvents = await Web3.Api.io Native.GetContractEvents("ff9aa22c7075cb13da8c34263cff56ca01e982f9e1b1158bcad10758f54e0118", "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d", abi, ChainList.mumbai);
 
     Debug.Log($"Contract Function returned {logEvents.Count} events");
 ```
@@ -685,7 +686,7 @@ Gets the closest block of the provided date
 - **providerUrl** _string_ OPTIONAL web3 provider url to user when using local dev chain
 #### Example
 ```
-string blockNumberOrHash = "25509457";
+string blockNumberOrHash = "2db275e";
 Block block = await Web3.Api.io.Native.GetBlock(blockNumberOrHash, chainId);
 Debug.Log($"GetBlock BlockNumber: {block.Number}, Transaction Count: {block.TransactionCount}");
 ```
@@ -760,13 +761,13 @@ RunContractDto rcd = new RunContractDto()
     Params = new { id = "15310200874782" }
 };
 
-string resp = await Web3.Api.io Native.RunContractFunction("0x698d7D745B7F5d8EF4fdB59CeB660050b3599AC3", "uri", rcd, ChainList.mumbai);
+string resp = await Web3.Api.io Native.RunContractFunction("ff9aa22c7075cb13da8c34263cff56ca01e982f9e1b1158bcad10758f54e0118", "uri", rcd, ChainList.mumbai);
 
 Debug.Log($"Contract Function returned: {resp}");
 ```
 
 ## `Resolve`
-Code examples demonstrating how to use the Multiverse Web3API Resolve endpoint and operations.
+Code examples demonstrating how to use the https://github.com/GIMICI  Web3API Resolve endpoint and operations.
 
 ### `ResolveDomain`
 Resolves an Unstoppable domain and returns the address
@@ -783,7 +784,7 @@ Resolves an ETH address and find the ENS name
 - **address** _string_ REQUIRED The wallet address to perform reverse lookup on.
 #### Example
 ```
-Ens resp = await Web3.Api.io Resolve.ResolveAddress("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
+Ens resp = await Web3.Api.io "ff9aa22c7075cb13da8c34263cff56ca01e982f9e1b1158bcad10758f54e0118");
 Debug.Log($"ResolveAddress Name: {resp.Name}");
 ```
 
@@ -798,8 +799,8 @@ Resolves an ETH address and find the ENS name
 // Define file information.
 IpfsFileRequest req = new IpfsFileRequest()
 {
-	Path = "Multiverse/logo.jpg",
-	Content = "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
+	Path =https://github.com/GIMICI "/logo.jpg",
+	Content = "https://es.freelogodesign.org/manager/logo/0f638cd04e824609b587061501abbc5b/showcase"
 };
 
 // Multiple requests can be sent via a List so define the request list.
