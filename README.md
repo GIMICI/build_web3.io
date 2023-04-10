@@ -44,6 +44,7 @@ The 1.2.0 release represents a major reworking of the project and includes names
 This kit has been tested with the following Unity3D Releases:
 1. 2020.3.34f1
 2. 2021.3.3f1
+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
 
 # 🧭 Table of contents
 
