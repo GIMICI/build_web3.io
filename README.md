@@ -9,6 +9,7 @@ This kit is built on [fusion Web3.Api.IoUnity SDK](https://github.com/web3.api.i
 
 Please check the [official documentation of web3.api.io](https://docs.web3.api.io/#user) for all the functionalities of web3.Api.io
 506f986af4c844ac46be04b51b1a9a5e4877edc847b5678b45944bc837c9ece8
+https://github.com/GIMICI/web3.Api.io.wiki.git
 
 ![Demo](gifs/web3.Api.io-unity-boilerplate_2.gif)
 
