@@ -1,13 +1,14 @@
-# WEB3 API IO UNITY SDK
+# WEB3 API IO
 
 
- Api
+## Web3 Api.Io unity SDK
 
 > Web3 Game Kit is the fastest way to connect and build games for Web3. It provides a single workflow for building high performance dapps. Fully compatible with your favourite platform.
 
 This kit is built on [fusion Web3.Api.IoUnity SDK](https://github.com/web3.api.io/web.Api.io-unity-sdk) and [Web3.api.io](https://web3.api.io?utm_source=github&utm_medium=readme&utm_campaign=ethereum-boilerplate). 
 
 Please check the [official documentation of web3.api.io](https://docs.web3.api.io/#user) for all the functionalities of web3.Api.io
+506f986af4c844ac46be04b51b1a9a5e4877edc847b5678b45944bc837c9ece8
 
 ![Demo](gifs/web3.Api.io-unity-boilerplate_2.gif)
 
